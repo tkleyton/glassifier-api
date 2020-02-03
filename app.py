@@ -13,7 +13,7 @@ api = Api(app)
 
 def img_filter(img_array):
     print("Filtering...")
-    filtered = Glassifier(n_clusters=13).load_image_array(
+    filtered = Glassifier(n_clusters=8).load_image_array(
             img_array).glassify(as_array=True)
 
     return filtered
