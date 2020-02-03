@@ -117,7 +117,7 @@ class Glassifier:
             X = self.imarray2df(img_arr)
 
             kmeans = KMeans(n_clusters=self.n_clusters,
-                            init='k-means++', max_iter=3, n_init=3)
+                            init='k-means++', max_iter=1, n_init=1)
             y_kmeans = kmeans.fit_predict(X)
 
             clusters_avg = kmeans.cluster_centers_[..., 2][y_kmeans]
