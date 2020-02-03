@@ -45,7 +45,7 @@ class ImageFilter(Resource):
 
 @app.route('/')
 def serve_img():
-    img = Image.open('img/cat.jpg')
+    img = Image.open('/img/cat.jpg')
     return serve_pil_image(img)
 
 
@@ -53,4 +53,4 @@ api.add_resource(ImageFilter, '/api/glassifier')
 
 
 if __name__ == "__main__":
-    app.run(port=5000)
+    app.run()
