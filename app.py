@@ -45,8 +45,8 @@ class ImageFilter(Resource):
 
 @app.route('/')
 def serve_img():
-    img = Image.open('/img/cat.jpg')
-    return serve_pil_image(img)
+    
+    return "See help"
 
 
 api.add_resource(ImageFilter, '/api/glassifier')
