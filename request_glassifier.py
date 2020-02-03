@@ -14,6 +14,8 @@ def request_img_glassifier(imgpath, apiurl):
     r = requests.post(apiurl,
                       json={"ndarray": imgarray.tolist()})
     print(f'Received with status code {r.status_code}.')
+    if r.status_code != 200:
+        return None
     data = r.json()
     array = np.array(data)
     returned_image = Image.fromarray(array.astype('uint8'))
