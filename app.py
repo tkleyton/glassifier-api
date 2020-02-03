@@ -45,7 +45,7 @@ class ImageFilter(Resource):
 
 @app.route('/')
 def serve_img():
-    img = Image.open('output/api.jpg')
+    img = Image.open('img/cat.jpg')
     return serve_pil_image(img)
 
 

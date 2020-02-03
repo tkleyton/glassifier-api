@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "c:\\Users\\Kleyton Torikai\\Documents\\GitHub\\flask-image-glassifier\\.venv\\Scripts\\python.exe",
+    "python.pythonPath": ".venv\\Scripts\\python.exe",
     "git.ignoreLimitWarning": true,
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": false,
