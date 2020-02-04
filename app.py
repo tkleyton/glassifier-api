@@ -10,9 +10,9 @@ app = Flask(__name__, static_folder="static", template_folder="templates")
 api = Api(app)
 
 
-def img_filter(img_array):
+def img_filter(img_array, n_clusters=25, **kwargs):
     print("Filtering...")
-    filtered = Glassifier(n_clusters=13).load_image_array(
+    filtered = Glassifier(n_clusters=n_clusters).load_image_array(
             img_array).glassify(as_array=True)
 
     return filtered
@@ -28,9 +28,11 @@ class ImageFilter(Resource):
         data = request.get_json(silent=True)
         try:
             img_array = array(data['ndarray'])
+            n_clusters = int(data['n_clusters'])
+            filtered = img_filter(img_array, n_clusters=n_clusters)
         except Exception:
             return "Invalid format. Use the provided request tool.", 400
-        filtered = img_filter(img_array)
+
         return filtered.tolist()
 
 
