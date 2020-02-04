@@ -22,7 +22,7 @@ def request_img_glassifier(imgpath, apiurl='https://glassifier-api.herokuapp.com
     Send a local image to the apiurl as a numpy array
     and returns a PIL.Image object with the response.
     """
-    if n_clusters >= 25:
+    if n_clusters > 25:
         print("Do not use n_clusters larger than 25!")
         return None
     img = Image.open(imgpath)
