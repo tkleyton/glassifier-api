@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import request, send_file
+from flask import request, send_file, render_template
 from glassifier import Glassifier
 import numpy as np
 from PIL import Image
@@ -7,7 +7,7 @@ from io import BytesIO
 from flask_restful import Api, Resource
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static", template_folder="templates")
 api = Api(app)
 
 
@@ -27,7 +27,7 @@ def serve_pil_image(pil_img):
 
 
 class ImageFilter(Resource):
-    # @app.route('/api/glassifier', methods=['POST'])
+
     def post(self):
         """
         Receives an image in numpy array format wrapped in a json
@@ -38,7 +38,7 @@ class ImageFilter(Resource):
         try:
             img_array = np.array(data['ndarray'])
         except Exception:
-            return "Invalid format. See documentation.", 400
+            return "Invalid format. Use the provided request tool.", 400
         filtered = img_filter(img_array)
         return filtered.tolist()
 
@@ -46,7 +46,7 @@ class ImageFilter(Resource):
 @app.route('/')
 def serve_img():
     
-    return "See help"
+    return render_template('index.html', title='Home')
 
 
 api.add_resource(ImageFilter, '/api/glassifier')

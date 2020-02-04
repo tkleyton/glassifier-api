@@ -1,0 +1,16 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - Glassifier API</title>
+        {% else %}
+        <title>Glassifier API</title>
+        {% endif %}
+    </head>
+        <h1>Glassifier API</h1>
+        <p>Read more about this API at <a href="https://github.com/tkleyton/glassifier-api">the GitHub repository</a></p>
+        <div><p>Base image</p><br>
+            <img src={{ url_for('static', filename='milu.jpg') }} width="640" /></div>
+        <div><p>Filtered image</p><br>
+            <img src={{ url_for('static', filename='filtered_milu.jpg') }} width="640" /></div>
+    </body>
+</html>

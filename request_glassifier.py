@@ -5,18 +5,17 @@ from PIL.Image import ANTIALIAS
 
 
 def resize(img, base_width=640):
-        """
-        Since the computational load grows exponentially
-        with image size, large images should be avoided.
-        """
-        wpercent = (base_width / float(img.size[0]))
-        print(wpercent)
-        if wpercent > 1:
-            return img
-        hsize = int((float(img.size[1]) * float(wpercent)))
+    """
+    Since the computational load grows exponentially
+    with image size, large images should be avoided.
+    """
+    wpercent = (base_width / float(img.size[0]))
+    if wpercent >= 1:
+        return img
+    hsize = int((float(img.size[1]) * float(wpercent)))
 
-        resized_img = img.resize((base_width, hsize), ANTIALIAS)
-        return resized_img
+    resized_img = img.resize((base_width, hsize), ANTIALIAS)
+    return resized_img
 
 def request_img_glassifier(imgpath, apiurl):
     """
@@ -25,7 +24,6 @@ def request_img_glassifier(imgpath, apiurl):
     """
     img = Image.open(imgpath)
     img = resize(img)
-    print(f"Array shape: {img.size}")
     imgarray = np.array(img)
     print("Requesting...")
     r = requests.post(apiurl,

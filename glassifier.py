@@ -58,7 +58,7 @@ class Glassifier:
         with image size, large images should be avoided.
         """
         wpercent = (self.base_width / float(img.size[0]))
-        if wpercent < 1:
+        if wpercent >= 1:
             return img
         hsize = int((float(img.size[1]) * float(wpercent)))
 
