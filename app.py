@@ -53,4 +53,4 @@ api.add_resource(ImageFilter, '/api/glassifier')
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=5000, debug=True)

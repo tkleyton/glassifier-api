@@ -17,7 +17,7 @@ def resize(img, base_width=640):
     resized_img = img.resize((base_width, hsize), ANTIALIAS)
     return resized_img
 
-def request_img_glassifier(imgpath, apiurl):
+def request_img_glassifier(imgpath, apiurl='https://glassifier-api.herokuapp.com/api/glassifier'):
     """
     Send a local image to the apiurl as a numpy array
     and returns a PIL.Image object with the response.
