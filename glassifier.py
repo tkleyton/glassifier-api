@@ -23,7 +23,7 @@ class Glassifier:
     >>>transformed_img.save('/path/to/output.jpg')
     """
 
-    def __init__(self, n_clusters=15, base_width=320, edge_size=0):
+    def __init__(self, n_clusters=15, base_width=640, edge_size=0):
         try:
             self.n_clusters = int(abs(n_clusters))
             self.base_width = int(abs(base_width))
